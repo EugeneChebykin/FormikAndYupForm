@@ -1,7 +1,7 @@
 {
-  "name": "timer_and_countdown",
+  "name": "form_validation",
   "version": "0.1.0",
-  "homepage": "https://eugenechebykin.github.io/Stopwatch_and_countdown",
+  "homepage": "https://eugenechebykin.github.io/FormikAndYupForm",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -39,17 +39,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
+    "eslint": "node_modules/.bin/eslint src/ --color --max-warnings=0",
     "precommit": "lint-staged",
-    "eslint": "eslint src/",
     "server": "node ./server.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.{js,jsx}": [
+    "*.(js|jsx)": [
       "node_modules/.bin/eslint --max-warnings=0",
       "prettier --write",
       "git add"
