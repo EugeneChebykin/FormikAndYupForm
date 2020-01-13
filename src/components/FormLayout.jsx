@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { uniqueId } from 'lodash';
 import { Form, Input, Icon, Checkbox, Button, Row, Col, Alert } from 'antd';
 import { FieldArray } from 'formik';
 
@@ -124,10 +125,10 @@ const FormLayout = props => {
         <FieldArray
           name="skills"
           render={({ remove, push }) => {
-            const rows = values.skills.map((skill, index) => (
-              <Row key={index}>
+            const rows = values.skills.map(({ id, name }, index) => (
+              <Row key={id}>
                 <Col span={12}>
-                  <Input name={`skills[${index}]`} value={skill} onChange={handleChange} />
+                  <Input name={`skills[${index}].name`} value={name} onChange={handleChange} />
                 </Col>
                 <Col span={2}>
                   {values.skills.length >= 2 && (
@@ -144,7 +145,7 @@ const FormLayout = props => {
             return (
               <div>
                 {rows}
-                <Button type="primary" onClick={() => push('')}>
+                <Button type="primary" onClick={() => push({ id: uniqueId(), name: '' })}>
                   Add Skill
                 </Button>
               </div>

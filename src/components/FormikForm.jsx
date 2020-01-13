@@ -2,8 +2,8 @@ import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { uniqueId } from 'lodash';
 import FormLayout from './FormLayout';
-const a = 9;
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -46,7 +46,7 @@ const FormikForm = () => {
         confirmation: '',
         website: '',
         acceptTerms: false,
-        skills: [''],
+        skills: [{ id: uniqueId(), name: '' }],
       }}
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting, resetForm, setFieldError, setFieldValue }) => {
