@@ -40,8 +40,13 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
     "precommit": "lint-staged",
-    "eslint": "eslint src/ || true",
+    "eslint": "eslint src/",
     "server": "node ./server.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.{js,jsx}": [

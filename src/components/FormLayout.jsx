@@ -171,6 +171,10 @@ FormLayout.propTypes = {
   values: PropTypes.instanceOf(Object).isRequired,
   touched: PropTypes.instanceOf(Object).isRequired,
   errors: PropTypes.instanceOf(Object).isRequired,
+  isSubmitting: PropTypes.bool.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleBlur: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default FormLayout;
